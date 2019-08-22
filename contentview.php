@@ -16,7 +16,7 @@ body{display:none}
 <?php
     //get the email equals to variable
     $email=htmlspecialchars($_GET['email']);
-	//$conn= new mysqli("192.168.1.133","zben","HAOhao123","record");
+	
 	$conn= new mysqli("127.0.0.1","root","xxxx","record");
 	if($conn->connect_error){
 		die("contact it for issue");
