@@ -1,2 +1,6 @@
 # maipdf
-Let PDF files to be shared in secured 
+www.maipdf.com
+
+let pdf files to be shared with restriction.
+
+let pdf files to be secured with no copy
