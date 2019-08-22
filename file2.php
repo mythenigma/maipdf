@@ -64,34 +64,7 @@ if (($_FILES["file"]["size"] < 2097152)  && in_array($extension, $allowedExts))
 		echo "文件类型: " . $_FILES["file"]["type"] . "<br>";
 		echo "文件大小: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
 		//echo "文件临时存储的位置: " . $_FILES["file"]["tmp_name"] . "<br>";
-	    //要检测零时的文件夹是否存在
-		
-		$year= date("Y");
-		$month= date("m");
-		$week=  date("d");
-		$fileplace="yes/".$year."/".$month."/".$week."/";
-		if (!is_dir($fileplace)){
-		  if (!mkdir($fileplace, 0777, true)) {
-              die('Failed to create folders...');
-          }
-		}
-		//echo $fileplace;
-		if (file_exists($fileplace . $_FILES["file"]["name"]))
-		{
-			echo $_FILES["file"]["name"] . " 文件已经存在。 ";
-			echo "没有上传". "<br>";
-		}
-		else
-		{
-			// 如果 upload 目录不存在该文件则将文件上传到 upload 目录下
-			    move_uploaded_file($_FILES["file"]["tmp_name"], $fileplace. $_FILES["file"]["name"]);
-				//echo "文件存储在: " . $fileplace . $_FILES["file"]["name"];
-				echo "上传成功，请在下框设置阅读次数";
-				$url=$fileplace.$_FILES["file"]["name"];
-				//session_start();
-              // $_SESSION["url"] = $url;
-			}
-		}
+	
 	}
 	else
 		{
