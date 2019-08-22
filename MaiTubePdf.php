@@ -2,7 +2,7 @@
     //get the email equals to variable,为什么要变成emails，因为别人会看到index2
     $email=htmlspecialchars($_GET['emails']);
 	
-	$conn= new mysqli("127.0.0.1","root","JOEjoe123","record");
+	$conn= new mysqli("127.0.0.1","root","","record");
 	if($conn->connect_error){
 		die("contact it for issue");
 	}
@@ -14,14 +14,11 @@
 		 		  $limit=$row['limit'];
 		  $url=$row['url'];
 		  $limit=$limit-1;
-		  // comment  因为，我觉得 preload是不需要去计数的
-		  //$limit=$limit-1;	
-		  //$sql2="UPDATE `zbenemail` SET `limit`=$limit WHERE `mdemail`='$email' "; 	
-		   //echo $sql2;
-		  //$result2=mysqli_query($conn,$sql2);
+		  
+		
 		  }
       } else {
-          //header("Location: https://www.z-ben.com");
+
 		  exit("you are not authorised to view");
       } 
       	// $sql="UPDATE"; 
