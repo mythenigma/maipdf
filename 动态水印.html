@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="keywords" content="Maipdf, 动态二维码水印, PDF文档保护, 安全PDF, 动态二维码">
+  <meta name="description" content="Maipdf提供了一种创新的动态二维码水印功能，帮助用户保护PDF文档安全，防止文档泄露和盗版。通过二维码水印，追溯泄露源头。">
+  <meta name="author" content="MaiPDF">
+  <title>Maipdf 动态二维码水印功能</title>
+ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9224406325142860" crossorigin="anonymous"></script>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- FontAwesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <style>
+    body {
+      background-color: #f5f7f8;
+      font-family: 'Arial', sans-serif;
+      color: #444;
+    }
+    header {
+      background-color: #ffffff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 40px 0;
+      text-align: center;
+    }
+    .header-icon {
+      font-size: 50px;
+      color: #2C8C99;
+    }
+    .header-text {
+      font-size: 1.4rem;
+      color: #2C8C99;
+    }
+    .container {
+      max-width: 900px;
+      margin-top: 40px;
+      padding: 40px;
+      background-color: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+    h1, h2 {
+      color: #2C8C99;
+    }
+    h3 {
+      color: #555;
+      margin-top: 30px;
+    }
+    p, ul, ol {
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    .section-title {
+      color: #2F4F4F;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+    .lead {
+      font-size: 1.2rem;
+      color: #6c757d;
+    }
+    .icon {
+      color: #2C8C99;
+    }
+    .img-placeholder {
+      width: 100%;
+      height: 300px;
+      background-color: #e1e1e1;
+      border-radius: 10px;
+      margin-top: 20px;
+      display: block;
+    }
+    footer {
+      background-color: #f1f1f1;
+      padding: 30px 0;
+      text-align: center;
+      margin-top: 40px;
+      color: #777;
+    }
+    .footer-links a {
+      text-decoration: none;
+      color: #2C8C99;
+      margin: 0 15px;
+      font-size: 1.1rem;
+    }
+    .footer-links a:hover {
+      color: #45a3b1;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <i class="fas fa-shield-alt header-icon"></i>
+    <h1>MaiPDF 动态二维码水印功能</h1>
+    <p class="header-text">保护文档安全与版权的创新应用</p>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <section>
+      <h2 class="section-title">什么是MaiPDF？</h2>
+      <p>MaiPDF是一款强大的PDF文档管理工具，旨在为用户提供更为灵活和安全的文档分享与管理功能。除了传统的PDF查看和编辑功能，MaiPDF还具备以下强大功能：</p>
+      <ul>
+        <li><strong>生成PDF分享链接：</strong> 用户可以通过MaiPDF将PDF文件转化为分享链接，直接将链接发送给他人查看，避免了文件下载和传播的安全隐患。</li>
+        <li><strong>设置PDF打开次数：</strong> 用户可以控制PDF链接的打开次数，这意味着文件只能在设定次数内被查看，超出次数后链接将失效，确保文件不会被无限次查看或传播。</li>
+        <li><strong>禁用打印和下载功能：</strong> 用户可以设置PDF文件在查看时禁止下载和打印，这有效阻止了文档的复制和非法传播，增加了文档的安全性。</li>
+        <li><strong>生成动态二维码水印：</strong> MaiPDF独特的动态二维码水印功能，将二维码嵌入到PDF文档页面，二维码内容随着设备信息、IP地址、文档信息等因素变化。这一二维码水印不仅能有效防止文档泄露，还能追溯泄露源头。</li>
+      </ul>
+    </section>
+
+    <!-- Image Placeholder -->
+    <img src="https://maipdf.com/pictures/MaiPDF/ENwatermark.png" alt="MaiPDF feature image" class="img-placeholder">
+
+    <section>
+      <h2 class="section-title">动态二维码水印的工作原理</h2>
+      <p>1. <strong>自动生成二维码：</strong> 当用户选择启用“动态二维码水印”功能后，MaiPDF会根据当前用户的设备信息、IP地址和文档的唯一标识生成一个二维码。这个二维码会自动嵌入到PDF文档页面上。</p>
+      <p>2. <strong>二维码信息加密：</strong> 二维码包含的信息会被加密，确保数据的隐私性。包括用户的IP地址、设备信息、文档的访问时间和其他唯一标识。</p>
+      <p>3. <strong>水印展示：</strong> 每次打开文档时，二维码内容会发生变化，使得每个打开文档的用户都看到不同的二维码。即使文件被截图或拍照，二维码中的信息仍然能够追溯到泄露源。</p>
+      <p>4. <strong>信息追溯：</strong> 二维码可以让您追溯到文档的泄露源，查看谁在什么时间、用什么设备、在什么IP地址下打开了文档，从而有效防止非法转载。</p>
+    </section>
+
+    <!-- Image Placeholder -->
+    <img src="https://maipdf.com/pictures/MaiPDF/qrwatermark.png" alt="Dynamic watermark" class="img-placeholder">
+
+    <section>
+      <h2 class="section-title">动态二维码水印的优势</h2>
+      <ul>
+        <li><strong>防止非法转载：</strong> 二维码随着每次查看设备的变化而不同，一旦文档被传播，二维码依然能够暴露泄露者的信息。</li>
+        <li><strong>增强版权保护：</strong> MaiPDF的动态二维码水印功能大大提升了文档的版权保护力度，减少盗版和非法转载的风险。</li>
+        <li><strong>增强文档安全性：</strong> MaiPDF的功能组合让文件的安全性得到全面保障，包括禁用下载与打印、限制文件的查看次数等。</li>
+        <li><strong>可追溯性强：</strong> 每次打开文档时，生成的动态二维码确保文档的泄露源可以追溯，极大地提升了对文档传播的控制力。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="section-title">MaiPDF适合哪些用户？</h2>
+      <ul>
+        <li><strong>企业用户：</strong> 对于需要保护公司机密文件、商业合同、财务数据等内容的企业，MaiPDF提供了极好的解决方案。</li>
+        <li><strong>学术出版商与研究者：</strong> 学术出版物和研究成果的保护尤为重要，MaiPDF的动态二维码水印功能能够有效防止学术论文被盗用或未经授权转载，保护知识产权。</li>
+        <li><strong>法律文书和合同管理者：</strong> 对于需要管理和保护法律文件的专业人士，MaiPDF的功能可以帮助确保文件在严格的保密要求下流通。</li>
+        <li><strong>内容创作者和出版商：</strong> 对于任何需要分享创作内容的人，MaiPDF提供的二维码水印和文件管理功能，能够有效防止盗版和未经授权的复制，保障创作版权。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="section-title">如何使用Maipdf的动态二维码水印功能？</h2>
+      <ol>
+        <li>在Maipdf平台上传你的PDF文件。</li>
+        <li>选择“启用动态二维码水印”选项。</li>
+        <li>设置文档的查看限制（如打开次数、禁止下载/打印等）。</li>
+        <li>生成分享链接，发送给指定的收件人。</li>
+        <li>收件人在查看文件时，动态二维码水印将显示在文档页面上。</li>
+      </ol>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Maipdf | <span class="footer-links"><a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></span></p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>
