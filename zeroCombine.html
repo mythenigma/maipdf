@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+
+<script>
+// 先使用 XOR 加密，再进行零宽字符编码
+function textToZeroWidthWithDoubleEncryption(text, key) {
+    // 第一步：XOR 加密
+    const xorEncryptedText = Array.from(text).map(char => {
+        // 使用 charCodeAt 获取 UTF-16 编码，并与密钥进行异或操作
+        let charCode = char.charCodeAt(0) ^ key;
+        return charCode.toString(2).padStart(16, '0');  // 修改为 16 位二进制表示，支持更大范围的字符
+    }).join('');
+
+    // 第二步：将 XOR 加密后的二进制转换为零宽字符
+    return xorEncryptedText.split('').map(bit => bit === '0' ? '\u200B' : '\u200C').join('');
+}
+
+// 解密流程：先解码零宽字符，再使用 XOR 解密
+function zeroWidthToTextWithDoubleDecryption(zeroWidthText, key) {
+    const binary = Array.from(zeroWidthText).map(char => {
+        return char === '\u200B' ? '0' : '1';
+    }).join('');
+
+    // 每16个二进制位恢复为一个字符（支持多字节字符）
+    const text = binary.match(/.{16}/g).map(bin => {
+        let charCode = parseInt(bin, 2) ^ key;
+        return String.fromCharCode(charCode);
+    }).join('');
+
+    return text;
+}
+
+// 测试
+const secretMessage = "Hi 你好!";  // 需要加密的消息
+const nonSecretMessage = "This is a non-encrypted part.";  // 不需要加密的部分
+
+console.log("Original Message:", secretMessage, nonSecretMessage);  // 输出原始消息
+
+// 密钥
+const key = 42;
+
+// 对 secretMessage 部分加密
+const encodedSecretMessage = textToZeroWidthWithDoubleEncryption(secretMessage, key);
+
+// 合并加密部分和非加密部分
+const combinedMessage = encodedSecretMessage + nonSecretMessage;
+console.log("Combined Encoded Message with XOR and Zero Width Characters:", combinedMessage);  
+
+// 解密过程：首先提取加密部分并进行解密
+const encodedSecretPart = combinedMessage.slice(0, encodedSecretMessage.length);  // 提取加密部分
+const decodedSecretMessage = zeroWidthToTextWithDoubleDecryption(encodedSecretPart, 42);  // 解密加密部分
+
+console.log("Decoded Text (Secret Message Only):", decodedSecretMessage);  // 应该输出 "Hi 你好!"
+
+
+</script>
+</body>
+</html>
