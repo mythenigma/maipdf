@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Complete guide and feature overview of Privnote.chat, a privacy-focused web application for secure and encrypted note sharing. Learn about its encryption methods, self-destructing notes, and decoding features.">
+    <meta name="keywords" content="Privnote, chat, secure note, encrypted message, privacy, zero-width encryption, binary encoding, self-destructing note, guide, feature overview">
+    <meta name="author" content="Privnote.chat Guide">
+    <title>Privnote.chat: Complete Guide and Feature Overview | Secure Note Sharing</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        .header-section {
+            background-color: #e9ecef;
+            padding: 2rem 1rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .feature-icon {
+            color: #0056b3;
+            margin-right: 0.5rem;
+        }
+        .important-clarification {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 0.25rem;
+        }
+        .important-clarification p {
+            font-style: italic;
+            color: #555;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+            color: #777;
+            border-top: 1px solid #ddd;
+        }
+        footer a {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <header class="header-section">
+        <div class="container">
+            <h1 class="display-4"><i class="fas fa-shield-alt feature-icon"></i> Privnote.chat: Complete Guide and Feature Overview</h1>
+            <p class="lead">Your Comprehensive Guide to Secure and Private Online Note Sharing</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="section mb-4">
+            <h2><i class="fas fa-list-ol feature-icon"></i> Step-by-Step Usage</h2>
+            <p class="mb-3">Learn how to effectively use Privnote.chat to create and share secure, encrypted notes online with this step-by-step guide.</p>
+
+            <section class="section mb-3">
+                <h3><i class="fas fa-plus-circle feature-icon"></i> 1. Creating a New Note</h3>
+                <p>To begin, navigate to the Privnote.chat homepage. You will find two distinct text boxes designed for different types of content:</p>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="fas fa-arrow-up feature-icon"></i> <strong>Top Box (Regular Message):</strong> Use this box to enter any text that is intended to be publicly readable or non-sensitive. Content placed here will be visible in its original form.</li>
+                    <li class="mb-2"><i class="fas fa-arrow-down feature-icon"></i> <strong>Bottom Box (Hidden or Encrypted Message):</strong> Input any sensitive or secret information into this box. Text entered here will be securely encrypted and hidden from initial view.</li>
+                </ul>
+            </section>
+
+            <section class="section mb-3">
+                <h3><i class="fas fa-key feature-icon"></i> 2. Encryption Methods</h3>
+                <p>After entering your content into the appropriate boxes, proceed with encryption:</p>
+                <ol class="step-list">
+                    <li>Click the <strong>"Encrypt Note"</strong> button.</li>
+                    <li>Privnote.chat will instantly apply two encryption methods to your hidden message:
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-eye-slash feature-icon"></i> <strong>Zero-Width Character Encryption:</strong> Your secret message is subtly embedded within the regular text using zero-width characters. This method renders the encrypted message visually identical to normal text, perfect for discreet communication.</li>
+                            <li class="mb-2"><i class="fas fa-code feature-icon"></i> <strong>Binary Encoding:</strong> The hidden message is transformed into binary code (sequences of 0s and 1s). This method provides an obvious visual indication of encryption, suitable for situations where it's important to clearly show that the content is secured.</li>
+                        </ul>
+                    </li>
+                    <li>Both the zero-width character encrypted text and the binary encoded text will be displayed, allowing you to choose the format that best fits your needs.</li>
+                </ol>
+            </section>
+
+            <section class="section mb-3">
+                <h3><i class="fas fa-link feature-icon"></i> 3. Generating and Sharing Secure Links</h3>
+                <p>Once your note is encrypted, Privnote.chat will generate a unique, secure URL:</p>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="fas fa-share-alt feature-icon"></i> This URL contains your encrypted message and can be shared securely with your intended recipient(s).</li>
+                    <li class="mb-2"><i class="fas fa-bomb feature-icon"></i> <strong>Self-Destruct Feature:</strong> Configure the link to automatically expire after certain conditions are met, enhancing security:
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-hourglass-start feature-icon"></i> <strong>Read-once:</strong> The note self-destructs immediately after it is read by the recipient.</li>
+                            <li class="mb-2"><i class="fas fa-clock feature-icon"></i> <strong>Time-based:</strong> Options for self-destruction after 1 hour, 4 hours, 24 hours, or 7 days.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="important-clarification">
+                    <p><strong><i class="fas fa-exclamation-circle feature-icon"></i> Important Clarification:</strong> The self-destruct feature applies to the sharing link, not the encrypted content itself. You can save and reuse the encrypted text (zero-width or binary) independently, even after the link has expired.</p>
+                </div>
+            </section>
+
+            <section class="section mb-3">
+                <h3><i class="fas fa-unlock feature-icon"></i> 4. Decoding and Retrieving Encrypted Content</h3>
+                <p>Encrypted content can be decoded at any time, even after the original link has self-destructed:</p>
+                <ol class="step-list">
+                    <li>Return to Privnote.chat.</li>
+                    <li>Paste your saved encrypted text (either zero-width or binary) into the provided decoder.</li>
+                    <li>Click <strong>"DecodeMessage"</strong> to instantly decrypt and reveal the hidden information.</li>
+                </ol>
+                <p>This ensures that your secret messages remain accessible to authorized individuals indefinitely, regardless of the link's status.</p>
+            </section>
+        </section>
+
+        <section class="section">
+            <h2><i class="fas fa-cogs feature-icon"></i> Summary of Core Features</h2>
+            <p class="mb-3">Privnote.chat offers a robust set of features designed for secure and private communication:</p>
+            <ul class="list-unstyled">
+                <li class="mb-2"><i class="fas fa-envelope-open-text feature-icon"></i> <strong>Dual Message Input:</strong> Separate text boxes for regular and secret content.</li>
+                <li class="mb-2"><i class="fas fa-fingerprint feature-icon"></i> <strong>Dual Encryption:</strong> Simultaneous generation of zero-width character and binary encryptions.</li>
+                <li class="mb-2"><i class="fas fa-calendar-times feature-icon"></i> <strong>Self-Destructing Links:</strong> Options for read-once or time-based link expiration.</li>
+                <li class="mb-2"><i class="fas fa-history feature-icon"></i> <strong>Permanent Decoding:</strong> Encrypted messages can be decoded anytime, even after link expiry.</li>
+            </ul>
+            <p>Privnote.chat simplifies the process of sending encrypted messages, managing your privacy, and ensuring long-term access to your private information. It's an ideal solution for anyone needing to share sensitive information securely online.</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p style="font-size: smaller;">This page provides a feature overview of Privnote.chat. For more information, please visit <a href="[Privnote.chat Official Website URL - Replace with actual URL]">Privnote.chat Official Website</a>.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>零宽字符与信息加密</title>
+  <!-- Bootstrap 5 CSS -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9224406325142860"
+     crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="text-center mb-4">零宽字符与信息加密</h1>
+
+        <p><strong>零宽字符（Zero-Width Characters）</strong> 是一种看不见但仍占据空间的特殊字符。它们的最大特点是不会显示任何可见的符号，但在计算机中仍然有自己的编码，因此可以在不影响文本外观的情况下，嵌入额外的信息。</p>
+
+        <h3>零宽字符是什么？</h3>
+        <p>零宽字符是一类具有特定 Unicode 编码（例如 U+200B 的零宽空格）但在显示时没有任何可见效果的字符。尽管它们在屏幕上看不见，但它们在计算机中占据一定的“空间”，可以用于隐蔽地存储数据。</p>
+
+        <h3>常见的零宽字符：</h3>
+        <ul>
+          <li><strong>零宽空格（ZWSP, U+200B）：</strong> 最常见的零宽字符，用于在文本中插入一个“看不见的空格”。</li>
+          <li><strong>零宽非连接符（ZWNJ, U+200C）：</strong> 用于防止字符的连接，常见于某些语言的书写中。</li>
+          <li><strong>零宽连接符（ZWJ, U+200D）：</strong> 强制连接字符，常用于某些复合字符的显示。</li>
+          <li><strong>零宽非换行符（ZWNBSP, U+2060）：</strong> 防止文本在某些位置换行。</li>
+        </ul>
+
+        <h3>零宽字符的应用：</h3>
+        <p>由于它们的隐蔽性，零宽字符在很多领域有着重要的应用，特别是在信息加密和隐写技术中：</p>
+        <ul>
+          <li><strong>隐写术：</strong> 零宽字符可以将信息隐藏在文本中，而不会被常规用户发现。</li>
+          <li><strong>加密：</strong> 在加密系统中，零宽字符可以作为一种容器，嵌入加密信息。</li>
+          <li><strong>防止数据泄漏：</strong> 通过将敏感信息隐藏在零宽字符中，可以有效地防止数据被截获或泄露。</li>
+        </ul>
+
+        <h3>如何使用零宽字符加密信息？</h3>
+        <p>零宽字符的加密方式通常是在文本中插入这些不可见字符，从而将原本可见的信息隐藏起来，只有通过特定的解密工具才能提取出隐藏的内容。</p>
+
+        <h3>Privnote.chat 的零宽字符加密功能</h3>
+        <p>如果你对零宽字符加密感兴趣，<strong>Privnote.chat</strong> 提供了相关的功能，允许用户使用零宽字符加密和解密信息。通过这种加密方式，你可以安全地将敏感信息嵌入普通文本中，只有拥有正确密码的接收者才能解密和查看信息。</p>
+
+        <p>此外，<strong>Privnote.chat</strong> 还支持阅后即焚功能，即便签在被阅读后会自动销毁，确保信息不会长时间存储，进一步提升信息的安全性。如果你有兴趣尝试这种加密方式，可以访问 <strong>Privnote.chat</strong> 并体验相关功能。</p>
+
+        <div class="text-center mt-4">
+          <a href="https://privnote.chat" class="btn btn-primary">点击这里尝试 Privnote.chat</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
