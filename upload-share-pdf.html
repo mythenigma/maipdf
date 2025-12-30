@@ -25,6 +25,34 @@
 
     <!-- Theme CSS - Includes Bootstrap -->
     <link href="https://maipdf.com/css/creative.min.css" rel="stylesheet">
+
+    <!-- Breadcrumb Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://sendpdfonline.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Features",
+                "item": "https://sendpdfonline.com/features/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Upload & Share Your PDFs Online",
+                "item": "https://sendpdfonline.com/features/en/hosting/upload-share-pdf.html"
+            }
+        ]
+    }
+    </script>
 </head>
 
 <body id="page-top">
@@ -42,6 +70,14 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
                     <h1 class="mt-0">Upload & Share Your PDFs Online</h1>
+                <!-- Publication Date -->
+                <div class="mb-3">
+                    <small class="text-muted">
+                        <i class="fas fa-calendar-alt"></i> Published: January 15, 2025 | 
+                        <i class="fas fa-sync-alt"></i> Updated: December 03, 2025
+                    </small>
+                </div>
+                
                     <hr class="divider my-4">
                     <p class="text-muted mb-5">
                         With MaiPDF, you can easily upload and share PDF files with others through secure links. No downloads necessary. Simply share the link, and users can view the content instantly.
@@ -60,7 +96,7 @@
                         MaiPDF ensures your files are secure through features like access limits, read-time settings, and the option to prevent downloads. This makes it easy to protect your documents and control how they're shared.
                     </p>
                     <div class="text-center mb-4">
-                        <img src="https://maipdf.com/pictures/MaiPDF/readnotify.png" class="img-thumbnail" alt="MaiPDF Security">
+                        <img src="../maipdf-images/readnotify.png" class="img-thumbnail" alt="MaiPDF Security">
                     </div>
 
                     <h4 class="mb-4">Easy Sharing and Access</h4>
@@ -68,7 +104,7 @@
                         Sharing your PDF is as easy as generating a link or QR code. MaiPDF ensures that links are fast, secure, and work seamlessly across platforms, whether shared via email, social media, or messaging apps.
                     </p>
                     <div class="text-center mb-4">
-                        <img src="https://maipdf.com/pictures/MaiPDF/security.png" class="img-thumbnail" alt="PDF Sharing Example">
+                        <img src="../maipdf-images/security.png" class="img-thumbnail" alt="PDF Sharing Example">
                     </div>
 
                     <h4 class="mb-4">Free and Fast</h4>
@@ -76,22 +112,25 @@
                         Unlike expensive paid services, MaiPDF offers these features completely free of charge. Our CDN service ensures that files are shared quickly, even with a large audience.
                     </p>
                     <div class="text-center mb-4">
-                        <img src="https://maipdf.com/pictures/MaiPDF/head.png" class="img-thumbnail" alt="MaiPDF Performance">
+                        <img src="../maipdf-images/head.png" class="img-thumbnail" alt="MaiPDF Performance">
                     </div>
 
                     <h4 class="mb-4">Compatible with Major Platforms</h4>
                     <p class="text-muted mb-5">
                         MaiPDF's links work across all modern browsers and devices, ensuring your PDF content is accessible anytime, anywhere, without any hassle.
                     </p>
+
+                    <!-- Call to Action -->
+                    <a href="https://maipdf.com" class="btn btn-primary btn-lg my-4"><i class="fas fa-upload"></i> Try MaiPDF Now</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-light py-5">
+    <footer class="bg-dark text-white py-4 rounded-top-4 mt-5">
         <div class="container">
-            <div class="small text-center text-muted">Copyright &copy; 2025 MaiPDF. All rights reserved.</div>
+            <div class="small text-center">Copyright &copy; 2025 MaiPDF. All rights reserved.</div>
         </div>
     </footer>
 
