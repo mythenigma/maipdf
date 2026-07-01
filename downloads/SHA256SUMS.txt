@@ -1,0 +1,4 @@
+# MaiPDF installer checksums (June 2026)
+995c5842b8d1f3d646138d9cdc8e331740d01368abe46ec92ed30f7f05cf870a  MaiPDF-1.0.0+6-system-version-release.apk
+33f9630163bfcda40815e0f58fa8357356ec4b309ea7b30195aed08087fdbcf8  MaiPDF-Setup-1.0.6.exe
+d9bd5abf7a215275c42d93d65b2cb929ed35959e61c33d82453ecc177b8d6527  MaiPDF-1.0.0.5.dmg

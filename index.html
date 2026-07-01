@@ -1,112 +1,381 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <title>Privnote Chat</title>
-	<meta name="description" content="A web-based application that allows users to create self-destructing notes that can be shared with others. When a note is created, a unique URL is generated that can be shared with the intended recipient. Once the recipient views the note, it is destroyed and cannot be accessed again. This feature makes privnote.com a popular choice for sending sensitive information that should not be stored permanently.">
-  <meta property="og:title" content="PriveNote- MaiPDF version">
-  <meta property="og:description" content="A web-based application that allows users to create self-destructing notes that can be shared with others. When a note is created, a unique URL is generated that can be shared with the intended recipient. Once the recipient views the note, it is destroyed and cannot be accessed again. This feature makes privnote.com a popular choice for sending sensitive information that should not be stored permanently.">
-  <meta property="og:image" content="https://maipdf.com/js/img/mainote.PNG">
-  <meta property="og:url" content="https://privnote.chat/read/intro.html">
-  <meta property="og:type" content="website">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9224406325142860"
-     crossorigin="anonymous"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9224406325142860" crossorigin="anonymous"></script>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"> 
-    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" rel="stylesheet" type="text/css">   
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MaiPDF — 安全 PDF 分享与 DRM 应用</title>
+<meta name="description" content="MaiPDF 提供在线受控分享与 App DRM 两种保护方式。浏览器链接分享，或用 .maipdf 文件在 Windows、macOS、Android、iOS 上获得更强防护。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://maipdf.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MaiPDF">
+<meta property="og:title" content="MaiPDF — 安全 PDF 分享与 DRM 应用">
+<meta property="og:description" content="在线分享或 App DRM，两种保护级别，按需选择。">
+<meta property="og:url" content="https://maipdf.com/">
+<meta name="theme-color" content="#7C3AED">
+<style>
+  :root {
+    --bg: #0b0a14;
+    --bg-2: #14111f;
+    --panel: #16131f;
+    --panel-hi: #1d1830;
+    --border: #2a2540;
+    --border-hi: #3a3358;
+    --fg: #ececf2;
+    --fg-dim: #a99fc0;
+    --fg-mute: #726a86;
+    --brand: #7c3aed;
+    --accent: #a78bfa;
+    --accent-hi: #c4b5fd;
+    --ok: #7bd88f;
+    --gradient: linear-gradient(135deg, #c4b5fd 0%, #7c3aed 100%);
+    --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  body {
+    min-height: 100vh;
+    color: var(--fg);
+    background:
+      radial-gradient(circle at 18% 0%, rgba(124, 58, 237, 0.18), transparent 38%),
+      radial-gradient(circle at 92% 4%, rgba(167, 139, 250, 0.1), transparent 32%),
+      var(--bg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", Inter, Roboto, sans-serif;
+    line-height: 1.6;
+    font-size: 15px;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  .nav {
+    position: sticky; top: 0; z-index: 40;
+    border-bottom: 1px solid var(--border);
+    background: rgba(11, 10, 20, 0.88);
+    backdrop-filter: blur(12px);
+  }
+  .nav-inner {
+    max-width: 1080px; margin: 0 auto; padding: 12px 22px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .brand { display: inline-flex; align-items: center; gap: 9px; font-weight: 800; font-size: 17px; }
+  .brand span {
+    background: var(--gradient);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .nav-links { margin-left: auto; display: flex; flex-wrap: wrap; gap: 4px; }
+  .nav-links a {
+    padding: 6px 12px; border-radius: 6px; color: var(--fg-dim);
+    font-size: 13px; font-weight: 600;
+  }
+  .nav-links a:hover { color: var(--fg); background: var(--panel-hi); }
+  .nav-cta {
+    flex-shrink: 0; padding: 7px 15px; border-radius: 6px;
+    color: #fff !important; background: var(--brand) !important;
+    font-size: 13px; font-weight: 700;
+  }
+  .nav-cta:hover { background: #8b4ff0 !important; }
+
+  .hero {
+    max-width: 1080px; margin: 0 auto; padding: 72px 22px 56px; text-align: center;
+  }
+  .eyebrow {
+    display: inline-block; padding: 6px 14px;
+    border: 1px solid rgba(167, 139, 250, 0.3); border-radius: 999px;
+    color: var(--accent-hi); background: rgba(124, 58, 237, 0.1);
+    font-size: 12px; font-weight: 700;
+  }
+  h1 {
+    margin: 18px auto 0; max-width: 720px;
+    font-size: clamp(34px, 5.2vw, 52px); line-height: 1.08;
+    font-weight: 800; letter-spacing: -0.5px;
+  }
+  h1 .grad {
+    background: var(--gradient);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero-lead {
+    margin: 18px auto 0; max-width: 620px;
+    color: var(--fg-dim); font-size: 17px; line-height: 1.65;
+  }
+  .hero-sub { margin-top: 10px; color: var(--fg-mute); font-size: 14px; }
+
+  .section {
+    max-width: 1080px; margin: 0 auto; padding: 0 22px 64px;
+  }
+  .section h2 {
+    font-size: clamp(24px, 3vw, 32px); font-weight: 800; letter-spacing: -0.3px;
+  }
+  .section-lead {
+    margin-top: 10px; max-width: 640px; color: var(--fg-dim); font-size: 15px;
+  }
+
+  .routes {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px;
+    margin-top: 28px;
+  }
+  .route {
+    border: 1px solid var(--border); border-radius: 14px;
+    background: linear-gradient(180deg, var(--panel-hi), var(--panel));
+    padding: 28px 26px; box-shadow: var(--shadow);
+    display: flex; flex-direction: column;
+  }
+  .route-tag {
+    display: inline-block; width: fit-content;
+    padding: 4px 10px; border-radius: 999px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase;
+  }
+  .route-tag.online { color: #93c5fd; background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.25); }
+  .route-tag.app { color: var(--accent-hi); background: rgba(124, 58, 237, 0.15); border: 1px solid rgba(124, 58, 237, 0.25); }
+  .route h3 { margin-top: 14px; font-size: 22px; font-weight: 800; }
+  .route p { margin-top: 10px; color: var(--fg-dim); flex: 1; }
+  .route ul { margin-top: 14px; list-style: none; display: grid; gap: 7px; }
+  .route li {
+    padding-left: 18px; position: relative; color: var(--fg-dim); font-size: 14px;
+  }
+  .route li::before {
+    content: ""; position: absolute; left: 0; top: 9px;
+    width: 7px; height: 7px; border-radius: 50%; background: var(--brand);
+  }
+  .route-note { margin-top: 12px; color: var(--fg-mute); font-size: 13px; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    min-height: 44px; padding: 0 20px; margin-top: 20px;
+    border: 1px solid var(--border-hi); border-radius: 8px;
+    color: var(--fg); background: var(--panel-hi);
+    font-size: 14px; font-weight: 700; transition: 0.15s ease;
+  }
+  .btn:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .btn.primary { color: #fff; background: var(--brand); border-color: transparent; }
+  .btn.primary:hover { background: #8b4ff0; }
+  .btn.store { border-color: rgba(0, 120, 212, 0.4); color: #93c5fd; }
+
+  .workflow {
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px;
+    margin-top: 28px;
+  }
+  .step {
+    border: 1px solid var(--border); border-radius: 10px;
+    background: var(--panel); padding: 16px;
+  }
+  .step b {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 26px; height: 26px; border-radius: 50%;
+    background: var(--brand); color: #fff; font-size: 12px;
+  }
+  .step h3 { display: inline; margin-left: 8px; font-size: 14px; font-weight: 700; }
+  .step p { margin-top: 8px; color: var(--fg-dim); font-size: 13px; line-height: 1.5; }
+
+  .downloads {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;
+    margin-top: 28px;
+  }
+  .dl-card {
+    border: 1px solid var(--border); border-radius: 12px;
+    background: var(--panel); padding: 22px;
+  }
+  .dl-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .dl-top strong { font-size: 17px; }
+  .tag {
+    padding: 3px 9px; border-radius: 999px;
+    border: 1px solid var(--border-hi); color: var(--fg-mute);
+    font-size: 11px; font-weight: 700;
+  }
+  .dl-card p { margin-top: 10px; color: var(--fg-dim); font-size: 14px; }
+  .dl-meta { margin-top: 8px; color: var(--fg-mute); font-size: 12px; font-family: ui-monospace, monospace; word-break: break-all; }
+  .dl-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .dl-actions .btn { margin-top: 0; flex: 1; min-width: 140px; }
+  .store-note {
+    margin-top: 18px; padding: 14px 16px; border-radius: 10px;
+    border: 1px solid var(--border); background: rgba(124, 58, 237, 0.08);
+    color: var(--fg-dim); font-size: 14px;
+  }
+
+  .compare {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;
+    margin-top: 28px;
+  }
+  .compare-card {
+    border: 1px solid var(--border); border-radius: 12px;
+    background: var(--panel); padding: 22px;
+  }
+  .compare-card h3 { font-size: 18px; font-weight: 800; }
+  .compare-card .when { margin-top: 6px; color: var(--accent-hi); font-size: 13px; font-weight: 600; }
+  .compare-card ul { margin-top: 14px; list-style: none; display: grid; gap: 8px; }
+  .compare-card li { color: var(--fg-dim); font-size: 14px; padding-left: 16px; position: relative; }
+  .compare-card li::before { content: "✓"; position: absolute; left: 0; color: var(--ok); font-weight: 700; }
+
+  .footer {
+    border-top: 1px solid var(--border); margin-top: 24px;
+    padding: 28px 22px 40px; color: var(--fg-mute); font-size: 13px;
+  }
+  .footer-inner {
+    max-width: 1080px; margin: 0 auto;
+    display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center;
+  }
+  .footer a:hover { color: var(--fg); }
+
+  @media (max-width: 880px) {
+    .routes, .downloads, .compare, .workflow { grid-template-columns: 1fr; }
+    .workflow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 520px) {
+    .workflow { grid-template-columns: 1fr; }
+    .nav-inner { flex-wrap: wrap; }
+    .nav-links { width: 100%; }
+  }
+</style>
 </head>
-
 <body>
-     <nav class="navbar bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="https://maipdf.com/mainote.html" style="color: white">
-            <h1>Prive<i class="fas fa-1x fa-unlock-alt text-warning"></i>ote</h1>
-          </a>
 
-          <small>A newer version of Privnote</small>
-        </div>
-      </nav>
-
-     <div class="container my-2" id="containerbox"> 
-        <h6 class="mb-4 ">Privnote- The Ultimate Self-Destructing Note Platform</h6>
-
-
-	
-        <p class="lead text-body-secondary">If you're looking for a secure and easy-to-use self-destructing note platform, you might want to check out Mainote. Unlike other popular note platforms like Privnote, Mainote offers a range of advanced features that make it the ultimate choice for users who value privacy and security.</p>
-        
-        <p class="lead text-body-secondary">One of the standout features of Mainote is its result log function, which allows note creators to see when their notes have been opened, by whom, and on what devices. This means that if you're using Mainote to send sensitive or confidential information, you'll be able to track who has accessed your note and when. This feature is especially useful for businesses, professionals, or anyone who needs to keep track of their note access history.</p>
-        <div class="text-center"><img src="https://maipdf.com/js/img/mainoteface.png" class="img-fluid"  style="height:357px;" alt="RedPacket" ></div>
-     
-<p class="lead text-body-secondary">
-In addition to its result log function, Mainote also offers a range of standard functions that you would expect from a self-destructing note platform. Users can set a timer for their notes to self-destruct after a certain period of time or after a specified number of views. Notes are encrypted both in transit and at rest, ensuring that your sensitive information remains secure at all times.</p>
-<p class="lead text-body-secondary">
-But what really sets Mainote apart is its user-friendliness. The platform is incredibly easy to use, even for those who are not tech-savvy. Notes can be created and shared in just a few clicks, and the platform's clean and intuitive interface makes it a joy to use.</p>
-<p class="lead text-body-secondary">
-Overall, if you're in need of a reliable, secure, and user-friendly self-destructing note platform, Mainote is definitely worth checking out. Its result log function and other advanced features make it a cut above the competition, and its user-friendliness ensures that even the most technophobic users will be able to use it with ease.</p>
-<div class="text-center">
- <img src="https://maipdf.com/js/img/mainoteresult.png" class="img-fluid text-center"  style="height:357px;" alt="RedPacket" >
-</div>
-    
-
-
-
-     </div>
-
-  <style>
-    .container-fluid{
-        color:white;
-        background-color:hsl(0, 60%, 50%);
-    }
-
-
-
-  </style>
-  
-  <section class="py-5 text-center container">
-
-    <div class="row py-lg-5" id="grabify" >
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fst-italic">What Result will you see</h1>
-        <p class="lead text-body-secondary">You can track the results of when the note link was opened, on which device it was opened, and by what IP was opened.</p>
-        <div class="d-grid  d-sm-flex justify-content-sm-center mt-1" id="buttontwo">
-          
-            <a href="https://privnote.chat" class="btn btn-primary btn-lg px-4 me-sm-3">Start Creating Note</a>
-        </div>
-      </div>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/"><span>MaiPDF</span></a>
+    <div class="nav-links">
+      <a href="#online">在线版</a>
+      <a href="#app">App DRM</a>
+      <a href="#download">下载</a>
+      <a href="https://maipdf.com/home.php" target="_blank" rel="noopener">官网</a>
     </div>
-  </section>  
+    <a class="nav-cta" href="https://maipdf.com/" target="_blank" rel="noopener">开始分享</a>
+  </div>
+</nav>
 
-<div class="container">
+<header class="hero">
+  <span class="eyebrow">Two ways to secure every PDF</span>
+  <h1>两种方式，<span class="grad">保护每一份 PDF</span></h1>
+  <p class="hero-lead">
+  浏览器快速分享，或 App 级 DRM 强防护。按场景选择保护级别，不必二选一。
+  </p>
+  <p class="hero-sub">Fast browser-based sharing · Stronger app protection when security really matters</p>
+</header>
 
- <a href="about.html">about.html</a>  <a href="cloudshare.html">cloudshare.html</a>  <a href="destrctanddecodeCN.html">destrctanddecodeCN.html</a>  <a href="index.html">index.html</a>  <a href="peopleinterestedin.html">peopleinterestedin.html</a>  <a href="privEngish.html">privEngish.html</a>  <a href="privnote.html">privnote.html</a>  <a href="privnoteScrenarioCN.html">privnoteScrenarioCN.html</a>  <a href="privnote_chat.html">privnote_chat.html</a>  <a href="privnotechatCHN.html">privnotechatCHN.html</a>  <a href="privnotecn.html">privnotecn.html</a>  <a href="privnoteselfdestruct.html">privnoteselfdestruct.html</a>  <a href="privnotezerowidth.html">privnotezerowidth.html</a>  <a href="privnote作用.html">privnote作用.html</a>  <a href="privnote使用.html">privnote使用.html</a>  <a href="zeroCombine.html">zeroCombine.html</a>  <a href="zeroEN2.html">zeroEN2.html</a>  <a href="zerowidthCN.html">zerowidthCN.html</a>  <a href="zerowidthCN2.html">zerowidthCN2.html</a>  <a href="zerowidthEN.html">zerowidthEN.html</a> 	  
-	  
+<main>
+  <section class="section" id="online">
+    <h2>选择适合的保护级别</h2>
+    <p class="section-lead">Choose the right protection level for your document.</p>
+    <div class="compare">
+      <article class="compare-card">
+        <h3>在线分享 Online Sharing</h3>
+        <p class="when">快速、灵活、浏览器打开 · 适合受控分发</p>
+        <ul>
+          <li>链接或二维码即时分享</li>
+          <li>过期时间、打开次数限制</li>
+          <li>动态水印、阅读记录追踪</li>
+          <li>读者无需安装 App 或插件</li>
+        </ul>
+        <a class="btn primary" href="https://maipdf.com/" target="_blank" rel="noopener">打开在线版 →</a>
+      </article>
+      <article class="compare-card">
+        <h3>App DRM</h3>
+        <p class="when">系统级防护 · 适合机密文件</p>
+        <ul>
+          <li>.maipdf 受保护文件格式</li>
+          <li>防截图、设备绑定、随时撤销</li>
+          <li>按页水印与追踪码</li>
+          <li>Windows / macOS / Android / iOS</li>
+        </ul>
+        <a class="btn primary" href="https://drm.maipdf.com/" target="_blank" rel="noopener">了解 App DRM →</a>
+      </article>
+    </div>
+  </section>
 
-  <footer class="py-3 my-4">
-  </footer>
-    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-     
-    </ul>
-    <p class="text-center text-muted">&copy; 2025 Privnote</p>
-   <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-   <li class="nav-item"><a href="https://iplogger.icu" class="nav-link px-2 text-muted">IP_Locator</a></li>
-      <li class="nav-item"><a href="https://grabify.icu" class="nav-link px-2 text-muted">IP_Tracker</a></li>
-      <li class="nav-item"><a href="https://pdfhost.online" class="nav-link px-2 text-muted">PDF_Host</a></li>
-      <li class="nav-item"><a href="https://maipdf.com/qr.php" class="nav-link px-2 text-muted">QR Maker</a></li>
-      <li class="nav-item"><a href="https://maipdf.com/maipdf.php" class="nav-link px-2 text-muted">MaiPDF</a></li>
-    </ul>
-</div>
+  <section class="section">
+    <div class="routes">
+      <article class="route" id="online-route">
+        <span class="route-tag online">Online</span>
+        <h3>在线分享</h3>
+        <p>上传 PDF，设置规则，生成链接或二维码。随时查看阅读记录、替换文件、调整权限。</p>
+        <ul>
+          <li>Link sharing &amp; QR code</li>
+          <li>Expiry &amp; open limits</li>
+          <li>Dynamic watermark</li>
+          <li>Real-time read tracking</li>
+        </ul>
+        <p class="route-note">Works in the browser. No app required.</p>
+        <a class="btn primary" href="https://maipdf.com/" target="_blank" rel="noopener">Start Sharing</a>
+      </article>
+      <article class="route" id="app">
+        <span class="route-tag app">App DRM</span>
+        <h3>App 受保护阅读</h3>
+        <p>将 PDF 打包为 .maipdf，在专用 App 中打开。浏览器无法实现的截图、录屏防护在此生效。</p>
+        <ul>
+          <li>.maipdf protected files</li>
+          <li>Anti-screenshot &amp; device binding</li>
+          <li>Revoke access anytime</li>
+          <li>Activity logs &amp; trace codes</li>
+        </ul>
+        <p class="route-note">App-based. Stronger control.</p>
+        <a class="btn primary" href="#download">Download App</a>
+      </article>
+    </div>
+  </section>
 
+  <section class="section">
+    <h2>工作流程</h2>
+    <p class="section-lead">How it works — same four steps, online or offline.</p>
+    <div class="workflow">
+      <div class="step"><b>1</b><h3>Protect</h3><p>上传 PDF 并设置规则，或生成 .maipdf 包。</p></div>
+      <div class="step"><b>2</b><h3>Share</h3><p>发送链接、二维码，或交付 .maipdf 文件。</p></div>
+      <div class="step"><b>3</b><h3>Open</h3><p>读者在浏览器或 App 中打开。</p></div>
+      <div class="step"><b>4</b><h3>Track / Revoke</h3><p>实时查看活动记录，随时撤销访问。</p></div>
+    </div>
+  </section>
+
+  <section class="section" id="download">
+    <h2>下载 MaiPDF App</h2>
+    <p class="section-lead">
+      选择你的平台。也可从 Microsoft Store / App Store 安装；下方为直接下载安装包。
+    </p>
+    <div class="downloads">
+      <article class="dl-card">
+        <div class="dl-top"><strong>Windows</strong><span class="tag">EXE</span></div>
+        <p>Microsoft Store 或直接下载安装程序。</p>
+        <p class="dl-meta">MaiPDF-Setup-1.0.6.exe · 14.8 MB</p>
+        <div class="dl-actions">
+          <a class="btn primary" href="https://apps.microsoft.com/store/detail/9NQPTNWN5HQH" target="_blank" rel="noopener">Microsoft Store</a>
+          <a class="btn store" href="downloads/MaiPDF-Setup-1.0.6.exe" download>Download .exe</a>
+        </div>
+      </article>
+      <article class="dl-card">
+        <div class="dl-top"><strong>iOS</strong><span class="tag">App Store</span></div>
+        <p>iPhone 与 iPad 现已上架 App Store。</p>
+        <div class="dl-actions">
+          <a class="btn primary" href="https://apps.apple.com/us/app/maipdf-secure-pdf/id6782001233" target="_blank" rel="noopener">Get on the App Store</a>
+        </div>
+      </article>
+      <article class="dl-card">
+        <div class="dl-top"><strong>Android</strong><span class="tag">APK</span></div>
+        <p>目前最强的防截图保护。Google Play 审核中，可先直接安装 APK。</p>
+        <p class="dl-meta">MaiPDF-1.0.0+6-system-version-release.apk · 74.5 MB</p>
+        <div class="dl-actions">
+          <a class="btn primary" href="downloads/MaiPDF-1.0.0+6-system-version-release.apk" download>Download APK</a>
+        </div>
+      </article>
+      <article class="dl-card">
+        <div class="dl-top"><strong>macOS</strong><span class="tag">DMG</span></div>
+        <p>签名版本，可在 Mac 上创建和打开受保护包。</p>
+        <p class="dl-meta">MaiPDF-1.0.0.5.dmg · 33.7 MB</p>
+        <div class="dl-actions">
+          <a class="btn primary" href="downloads/MaiPDF-1.0.0.5.dmg" download>Download DMG</a>
+        </div>
+      </article>
+    </div>
+    <div class="store-note">
+      Windows 与 iOS 已上架官方应用商店。Android 请使用上方 APK；也可访问
+      <a href="https://drm.maipdf.com/#download" target="_blank" rel="noopener">drm.maipdf.com</a>
+      获取最新构建。校验和见 <a href="downloads/SHA256SUMS.txt">SHA256SUMS.txt</a>。
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>MaiPDF — Secure PDF Sharing &amp; DRM</span>
+    <a href="https://maipdf.com/" target="_blank" rel="noopener">maipdf.com</a>
+    <a href="https://drm.maipdf.com/" target="_blank" rel="noopener">drm.maipdf.com</a>
+    <a href="mailto:joe@pdfhost.online">joe@pdfhost.online</a>
+  </div>
+</footer>
 
 </body>
-
-<style>
-
-
-</style>
-
-<script>
- 
-</script>
+</html>
