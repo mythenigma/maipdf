@@ -61,15 +61,9 @@ Latest builds are also available at [drm.maipdf.com](https://drm.maipdf.com/#dow
 
 ---
 
-## About This Repo
+## About
 
-This is the GitHub home for MaiPDF. It provides:
-
-- A product overview of Online Sharing and App DRM
-- Direct downloads for Windows, Android, and macOS
-- A [GitHub Pages](https://mythenigma.github.io/maipdf/) landing page (when enabled)
-
-App backend and DRM service code live in [AustraliaGuide](https://github.com/mythenigma/AustraliaGuide).
+This page introduces MaiPDF Online Sharing and App DRM, and hosts direct downloads for Windows, Android, and macOS.
 
 ---
 
