@@ -268,9 +268,10 @@
         <h3>App DRM</h3>
         <p class="when">OS-level enforcement — best for confidential files</p>
         <ul>
-          <li>Protected .maipdf file format</li>
-          <li>Anti-screenshot, device binding, instant revoke</li>
-          <li>Per-page watermarks and trace codes</li>
+          <li>Locally encrypted .maipdf packages</li>
+          <li>Capture controls and mirroring detection</li>
+          <li>Per-page trace codes and device binding</li>
+          <li>Guest mode, access limits, and instant revoke</li>
           <li>Windows, macOS, Android, and iOS</li>
         </ul>
         <a class="btn primary" href="https://drm.maipdf.com/" target="_blank" rel="noopener">Learn about App DRM</a>
@@ -296,14 +297,14 @@
       <article class="route" id="app">
         <span class="route-tag app">App DRM</span>
         <h3>Protected App Reader</h3>
-        <p>Package PDFs as .maipdf and open them in a dedicated app. Screenshot and recording controls that browsers cannot enforce.</p>
+        <p>Encrypt PDFs locally as .maipdf packages and open them in a dedicated app with online authorization and OS-level protection.</p>
         <ul>
-          <li>.maipdf protected files</li>
-          <li>Anti-screenshot and device binding</li>
-          <li>Revoke access anytime</li>
-          <li>Activity logs and trace codes</li>
+          <li>Screenshot and recording controls where supported</li>
+          <li>Mirroring detection and per-page trace codes</li>
+          <li>Expiry, open, device, and recipient rules</li>
+          <li>Guest mode plus pause or revoke controls</li>
         </ul>
-        <p class="route-note">App-based. Stronger control.</p>
+        <p class="route-note">Capture controls cannot stop a separate camera from photographing the screen. Trace codes help identify the license, device, and open event behind a leak.</p>
         <a class="btn primary" href="#download">Download App</a>
       </article>
     </div>
@@ -313,10 +314,10 @@
     <h2>How it works</h2>
     <p class="section-lead">Same four steps — online or with the app.</p>
     <div class="workflow">
-      <div class="step"><b>1</b><h3>Protect</h3><p>Upload your PDF and set rules, or create a .maipdf package.</p></div>
+      <div class="step"><b>1</b><h3>Protect</h3><p>Upload your PDF and set rules, or encrypt it locally as a .maipdf package.</p></div>
       <div class="step"><b>2</b><h3>Share</h3><p>Send a link, QR code, or deliver a .maipdf file.</p></div>
-      <div class="step"><b>3</b><h3>Open</h3><p>Recipients open in the browser or in the app.</p></div>
-      <div class="step"><b>4</b><h3>Track / Revoke</h3><p>See activity in real time and revoke access anytime.</p></div>
+      <div class="step"><b>3</b><h3>Open</h3><p>Recipients open in the browser, or use app guest mode unless sign-in is required.</p></div>
+      <div class="step"><b>4</b><h3>Track / Revoke</h3><p>Inspect access, pause, or revoke every shared copy anytime.</p></div>
     </div>
   </section>
 
@@ -344,23 +345,25 @@
       </article>
       <article class="dl-card">
         <div class="dl-top"><strong>Android</strong><span class="tag">APK</span></div>
-        <p>Best screen-capture protection today. Google Play is in review — install the APK directly in the meantime.</p>
+        <p>Install from Google Play, or download the APK directly.</p>
         <p class="dl-meta">MaiPDF-1.0.0+6-system-version-release.apk · 74.5 MB</p>
         <div class="dl-actions">
-          <a class="btn primary" href="downloads/MaiPDF-1.0.0+6-system-version-release.apk" download>Download APK</a>
+          <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.maipdf.app" target="_blank" rel="noopener">Google Play</a>
+          <a class="btn store" href="downloads/MaiPDF-1.0.0+6-system-version-release.apk" download>Download APK</a>
         </div>
       </article>
       <article class="dl-card">
         <div class="dl-top"><strong>macOS</strong><span class="tag">DMG</span></div>
-        <p>Signed build for creating and opening protected packages on Mac.</p>
+        <p>Install from the Mac App Store, or download the signed DMG directly.</p>
         <p class="dl-meta">MaiPDF-1.0.0.5.dmg · 33.7 MB</p>
         <div class="dl-actions">
-          <a class="btn primary" href="downloads/MaiPDF-1.0.0.5.dmg" download>Download DMG</a>
+          <a class="btn primary" href="https://apps.apple.com/app/id6782270058" target="_blank" rel="noopener">Mac App Store</a>
+          <a class="btn store" href="downloads/MaiPDF-1.0.0.5.dmg" download>Download DMG</a>
         </div>
       </article>
     </div>
     <div class="store-note">
-      MaiPDF is live on the Microsoft Store (Windows) and the App Store (iOS). For the latest Android build, use the APK above or visit
+      MaiPDF is live on Google Play (Android), the Microsoft Store (Windows), and the App Store (iOS &amp; macOS). Prefer a direct installer? Use the APK, EXE, or DMG above, or visit
       <a href="https://drm.maipdf.com/#download" target="_blank" rel="noopener">drm.maipdf.com</a>.
       Checksums: <a href="downloads/SHA256SUMS.txt">SHA256SUMS.txt</a>.
     </div>

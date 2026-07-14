@@ -21,12 +21,15 @@ Best for quick, controlled browser sharing. Upload a PDF, set rules, and generat
 
 ### 2. App DRM
 
-Best for confidential files. Package PDFs as `.maipdf` and open them in a dedicated app with OS-level protection.
+Best for confidential files. Encrypt PDFs locally as `.maipdf` packages and open them in a dedicated app with online authorization and OS-level protection.
 
-- Anti-screenshot and screen-recording controls (varies by platform)
-- Email authorization and device binding
-- Per-page watermarks and trace codes
-- Pause or revoke access anytime
+- Screenshot and screen-recording controls where supported
+- Mirroring detection and a trace code on every page
+- Expiry, open limits, device limits, and recipient rules
+- Guest mode for readers unless the sender requires sign-in
+- Pause or revoke access anytime, even after sharing
+
+Capture controls cannot prevent someone from photographing the screen with another device. Per-page trace codes help tie a leak to its license, device, and open event.
 
 **Learn more →** [drm.maipdf.com](https://drm.maipdf.com/)
 
@@ -45,19 +48,18 @@ Best for confidential files. Package PDFs as `.maipdf` and open them in a dedica
 
 ## Download the App
 
-Direct installers are in the `downloads/` folder:
+Install from an official app store, or use a direct installer where available:
 
-| Platform | File | Size |
-|----------|------|------|
-| Windows | [MaiPDF-Setup-1.0.6.exe](downloads/MaiPDF-Setup-1.0.6.exe) | 14.8 MB |
-| Android | [MaiPDF-1.0.0+6-system-version-release.apk](downloads/MaiPDF-1.0.0+6-system-version-release.apk) | 74.5 MB |
-| macOS | [MaiPDF-1.0.0.5.dmg](downloads/MaiPDF-1.0.0.5.dmg) | 33.7 MB |
+| Platform | Official store | Direct download |
+|----------|----------------|-----------------|
+| Windows | [Microsoft Store](https://apps.microsoft.com/store/detail/9NQPTNWN5HQH) | [EXE · 14.8 MB](downloads/MaiPDF-Setup-1.0.6.exe) |
+| Android | [Google Play](https://play.google.com/store/apps/details?id=com.maipdf.app) | [APK · 74.5 MB](downloads/MaiPDF-1.0.0+6-system-version-release.apk) |
+| macOS | [Mac App Store](https://apps.apple.com/app/id6782270058) | [DMG · 33.7 MB](downloads/MaiPDF-1.0.0.5.dmg) |
 | iOS | [App Store](https://apps.apple.com/us/app/maipdf-secure-pdf/id6782001233) | — |
-| Windows (store) | [Microsoft Store](https://apps.microsoft.com/store/detail/9NQPTNWN5HQH) | — |
 
 SHA-256 checksums: [downloads/SHA256SUMS.txt](downloads/SHA256SUMS.txt)
 
-Latest builds are also available at [drm.maipdf.com](https://drm.maipdf.com/#download).
+All four platforms are available from their official stores. Latest direct installers are also available at [drm.maipdf.com](https://drm.maipdf.com/#download).
 
 ---
 
